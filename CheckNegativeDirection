@@ -1,0 +1,14 @@
+/**
+     *
+     * @return char direction in which a negative number exists
+     */
+    public char isNegative() {
+        // negative exists towards north
+        if (gameBoard[myCurrentRow - 1][myCurrentColumn] < 0) return 'N';
+        // negative exists towards south
+        else if (gameBoard[myCurrentRow + 1][myCurrentColumn] < 0) return 'S';
+        // negative exists towards west
+        else if(gameBoard[myCurrentRow][myCurrentColumn - 1] < 0) return 'W';
+        // negative exists towards east
+        else if(gameBoard[myCurrentRow][myCurrentColumn + 1] < 0) return 'E';
+    }
