@@ -25,17 +25,67 @@ public class Bot {
             return "DOWN";
         }
         int[] moves = Weight.calculateWeight(); //0-up, 1-down, 2-left, 3-right
-
         int dir = getMaxIndex(moves);
-
+        String dirn = "";
         if (dir == 0)
-            return "UP";
+            dirn = "UP";
         else if (dir == 1)
-            return "DOWN";
+            dirn = "DOWN";
         else if (dir == 2)
-            return "LEFT";
+            dirn = "LEFT";
         else
-            return "RIGHT";
+            dirn = "RIGHT";
+
+        if (dirn.equals("UP") && !isInsideBoard(myCurrentRow - 1, myCurrentColumn)){
+            moves[dir] = -15000;
+            dir = getMaxIndex(moves);
+            if (dir == 1)
+                return "DOWN";
+            else if (dir == 2)
+                return "LEFT";
+            else
+                return "RIGHT";
+        }
+        else if (dirn.equals("DOWN") && !isInsideBoard(myCurrentRow + 1, myCurrentColumn)){
+            moves[dir] = -15000;
+            dir = getMaxIndex(moves);
+            if (dir == 0)
+                return "UP";
+            else if (dir == 2)
+                return "LEFT";
+            else
+                return "RIGHT";
+        }
+        else if (dirn.equals("LEFT") && !isInsideBoard(myCurrentRow, myCurrentColumn - 1)){
+            moves[dir] = -15000;
+            dir = getMaxIndex(moves);
+            if (dir == 0)
+                return "UP";
+            else if (dir == 1)
+                return "DOWN";
+            else
+                return "RIGHT";
+        }
+        else if (dirn.equals("RIGHT") && !isInsideBoard(myCurrentRow, myCurrentColumn + 1)){
+            moves[dir] = -15000;
+            dir = getMaxIndex(moves);
+            if (dir == 0)
+                return "UP";
+            else if (dir == 1)
+                return "DOWN";
+            else
+                return "LEFT";
+        }
+        else {
+            if (dir == 0)
+                return "UP";
+            else if (dir == 1)
+                return "DOWN";
+            else if (dir == 2)
+                return "LEFT";
+            else
+                return "RIGHT";
+        }
         //Return UP, DOWN, LEFT, or RIGHT to move that direction
         //Best of luck!
     }

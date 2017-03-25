@@ -4,7 +4,7 @@ import java.math.MathContext;
  * Created by hiten on 3/24/2017.
  */
 public class Weight {
-    static Integer[][] weightedBoard;
+    static Integer[][] weightedBoard = new Integer[Bot.gameBoard.length][Bot.gameBoard.length];
     static int row = Bot.myCurrentRow;
     static int col = Bot.myCurrentColumn;
 
