@@ -49,13 +49,13 @@ public class Weight {
         //calculate a[3]
         for (int i = 0; i < 2; i++) {
             if(Bot.isInsideBoard(i+row,col))
-                a[3] += weightedBoard[i][col];
+                a[3] += weightedBoard[row+i][col];
         }
 
         //calculate a[0]
         for (int i = 0; i < 2; i++) {
             if(Bot.isInsideBoard(row,col+i))
-                a[0] += weightedBoard[row][i];
+                a[0] += weightedBoard[row][col+i];
         }
 
         //calculate a[1]
