@@ -1,0 +1,19 @@
+/**
+     * 
+     * @return suggest direction to turn in while on corner
+     */
+    public static char checkBorderCorners() {
+        // north-west corner -- two possible moves - south/east
+        if(myCurrentRow == 0 && myCurrentColumn == 0) {
+            if(isNegative() == 'N') return 'E';
+            else if(isNegative() == 'W') return 'S';
+        } else if (myCurrentRow) {// north-east corner -- two possible moves - south/west
+            if (isNegative() == 'N') return 'W';
+            else if (isNegative() == 'E') return 'S';
+        } else if (myCurrentRow == (gameBoard.length - 1) && myCurrentColumn == 0) {// south-west corner -- two possible moves - north/east
+            if (isNegative() == 'S') return 'E';
+            else if (isNegative() == 'W') return 'N';
+        } else if(myCurrentRow == (gameBoard.length - 1) && myCurrentColumn == (gameBoard.length - 1)) {// south-east corner -- two possible moves - north/west
+            if (isNegative() == 'S') return 'W';
+            else if (isNegative() == 'E') return 'N';
+     }
