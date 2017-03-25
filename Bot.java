@@ -3,7 +3,7 @@ import java.util.Collections;
 public class Bot {
 
     //TODO: HERE! IMPORTANT! Input your AUTH_KEY below!
-    final static String AUTH_KEY = "MyPasswordHere";
+    final static String AUTH_KEY = "XNQSS1490395092222";
 
     static Integer[][] gameBoard;
     static int myPlayerNumber;
@@ -34,7 +34,7 @@ public class Bot {
             return "DOWN";
         else if (dir == 2)
             return "LEFT";
-        else 
+        else
             return "RIGHT";
         //Return UP, DOWN, LEFT, or RIGHT to move that direction
         //Best of luck!
