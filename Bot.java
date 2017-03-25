@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Bot {
 
     //TODO: HERE! IMPORTANT! Input your AUTH_KEY below!
@@ -22,9 +24,31 @@ public class Bot {
             System.out.println("Game board was messed up coming into public void makeMove()");
             return "DOWN";
         }
-        return "UP";
+        int[] moves = Weight.calculateWeight(); //0-up, 1-down, 2-left, 3-right
+
+        int dir = getMaxIndex(moves);
+
+        if (dir == 0)
+            return "UP";
+        else if (dir == 1)
+            return "DOWN";
+        else if (dir == 2)
+            return "LEFT";
+        else 
+            return "RIGHT";
         //Return UP, DOWN, LEFT, or RIGHT to move that direction
         //Best of luck!
+    }
+
+    public static int getMaxIndex(int[] moves){
+        int max = 0;
+
+        for(int i = 1; i < moves.length; i++){
+            if (moves[max] < moves[i])
+                max = i;
+        }
+
+        return max;
     }
 
     //Small helper Method
